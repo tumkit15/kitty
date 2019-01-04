@@ -59,7 +59,7 @@ def draw_tab_with_separator(draw_data, screen, tab, before, max_title_length, in
 
 
 def draw_tab_with_fade(draw_data, screen, tab, before, max_title_length, index):
-    tab_bg = draw_data.active_bg if tab.is_active else draw_data.inactive_bg
+    tab_bg = tab.color or (draw_data.active_bg if tab.is_active else draw_data.inactive_bg)
     fade_colors = [as_rgb(color_as_int(alpha_blend(tab_bg, draw_data.default_bg, alpha))) for alpha in draw_data.alpha]
     for bg in fade_colors:
         screen.cursor.bg = bg

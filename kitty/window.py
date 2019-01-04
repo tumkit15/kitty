@@ -133,6 +133,7 @@ class Window:
         self.child_title = self.default_title
         self.title_stack = deque(maxlen=10)
         self.allow_remote_control = child.allow_remote_control
+        self.tab_color = None
         self.id = add_window(tab.os_window_id, tab.id, self.title)
         if not self.id:
             raise Exception('No tab with id: {} in OS Window: {} was found, or the window counter wrapped'.format(tab.id, tab.os_window_id))

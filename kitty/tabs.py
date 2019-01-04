@@ -121,6 +121,10 @@ class Tab:  # {{{
     def title(self):
         return getattr(self.active_window, 'title', appname)
 
+    @property
+    def color(self):
+        return getattr(self.active_window, 'tab_color', None)
+
     def set_title(self, title):
         self.name = title or ''
         tm = self.tab_manager_ref()
