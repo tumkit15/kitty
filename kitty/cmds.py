@@ -324,6 +324,22 @@ def goto_layout(boss, window, payload):
 # }}}
 
 
+# set_window_tab_color {{{
+@cmd(
+    'Set the window tab color',
+    'Set the tab color for the specified window.',
+    options_spec=MATCH_WINDOW_OPTION,
+    argspec='COLOR ...'
+)
+def cmd_set_window_tab_color(global_opts, opts, args):
+    return {'color': ' '.join(args)}
+
+
+def set_window_tab_color(boss, window, payload):
+    window.set_tab_color(payload['color'])
+# }}}
+
+
 # last_used_layout {{{
 @cmd(
     'Switch to the last used layout',
