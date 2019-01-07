@@ -263,11 +263,21 @@ class Window:
             t.title_changed(self)
         glfw_post_empty_event()
 
+    def tab_color_changed(self):
+        t = self.tabref()
+        if t is not None:
+            t.tab_color_changed(self)
+        glfw_post_empty_event()
+
     def set_title(self, title):
         if title:
             title = sanitize_title(title)
         self.override_title = title or None
         self.title_updated()
+
+    def set_tab_color(self, color):
+        self.tab_color = color
+        self.tab_color_changed()
 
     # screen callbacks {{{
     def use_utf8(self, on):

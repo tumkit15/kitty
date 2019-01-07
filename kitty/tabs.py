@@ -137,6 +137,12 @@ class Tab:  # {{{
             if tm is not None:
                 tm.mark_tab_bar_dirty()
 
+    def tab_color_changed(self, window):
+        if window is self.active_window:
+            tm = self.tab_manager_ref()
+            if tm is not None:
+                tm.mark_tab_bar_dirty()
+
     def on_bell(self, window):
         tm = self.tab_manager_ref()
         if tm is not None:
